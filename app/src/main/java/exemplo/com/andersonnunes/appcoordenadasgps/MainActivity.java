@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private boolean solicitarPermissaoParaObterLocalizacao() {
 
-        Toast.makeText(this, "Aplicativo não tem Permissão....", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Verifiando Permissões....", Toast.LENGTH_LONG).show();
 
         List<String> permissoesNegadas = new ArrayList<>();
 
