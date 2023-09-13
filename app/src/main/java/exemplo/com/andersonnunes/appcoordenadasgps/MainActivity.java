@@ -29,7 +29,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     GoogleMap mMap;
-    String[] permissoesRequiridas = {Manifest.permission.ACCESS_FINE_LOCATION,
+    String[] permissoesRequeridas = {Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.READ_CONTACTS};
 
@@ -66,20 +66,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         if (gpsAtivo) {
 
-            obterCoordenadaas();
+            obterCoordenadas();
 
         } else {
             latitude = 0.00;
             longitude = 0.00;
 
-            txtValorLatitude.setText(String.valueOf(latitude));
-            txtValorLongitude.setText(String.valueOf(longitude));
+            txtValorLatitude.setText(formatarGeopoint(latitude));
+            txtValorLongitude.setText(formatarGeopoint(longitude));
 
             Toast.makeText(this, "Coordenadas não Disponiveis", Toast.LENGTH_LONG).show();
         }
     }
 
-    private void obterCoordenadaas() {
+    private void obterCoordenadas() {
 
         boolean permissaoAtiva = solicitarPermissaoParaObterLocalizacao();
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         int permissaoNegada;
 
-        for (String permissao : this.permissoesRequiridas) {
+        for (String permissao : this.permissoesRequeridas) {
 
             permissaoNegada = ContextCompat.checkSelfPermission(MainActivity.this, permissao);
 
