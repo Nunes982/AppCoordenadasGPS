@@ -158,5 +158,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap.addMarker(new MarkerOptions().position(localizacaoCelular).title("Celular localizado AQUI!"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(localizacaoCelular));
+
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.setMinZoomPreference(4.5f);
+        mMap.setMaxZoomPreference(16.0f);
     }
 }
